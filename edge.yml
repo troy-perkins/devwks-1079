@@ -14,7 +14,7 @@
         ansible_become: yes
         ansible_become_method: enable
         ansible_become_password: cisco123
-        ansible_ssh_host: "{{ edge_public }}"
+        ansible_ssh_host: x.x.x.x
         ansible_network_os: cisco.ios.ios
         
 - name: Configure Edge Cloud Router
