@@ -1,9 +1,3 @@
-provider "aws" {
-   region = "us-west-2"
-   access_key                   = "AKIAURZJ36KXOHXNMIM3"
-   secret_key                   = "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"
-}
-
 resource "aws_instance" "clusxx" {
    ami                          = "ami-08ff3b00ec566077f"
    instance_type                = "t3.medium"
