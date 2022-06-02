@@ -23,7 +23,7 @@
   connection: network_cli
 
   tasks:
-    - name: Create Edge Router Loopback0 Interface
+    - name: Create Edge Router Loopbackx Interface
       ios_config:
         lines:
         - ip address 192.168.0.x 255.255.255.255
