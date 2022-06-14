@@ -1,4 +1,4 @@
-resource "aws_instance" "clusxx" {
+resource "aws_instance" "clus" {
    ami                          = "ami-08ff3b00ec566077f"
    instance_type                = "t3.medium"
    availability_zone            = "us-west-2a"
@@ -8,7 +8,7 @@ resource "aws_instance" "clusxx" {
 
    user_data = <<-EOF
        Section: IOS configuration
-       hostname clusxx
+       hostname clus
        ip domain name cisco.local
        aaa new-model
        aaa authentication login default local
@@ -18,12 +18,16 @@ resource "aws_instance" "clusxx" {
        enable secret cisco123
        restconf
    EOF
+   
+   #provisioner "local-exec" {
+   #   command = "ansible-playbook eigrp.yml --extra-vars 'edge_public=${aws_instance.clus.public_ip}'"
+   #}
 }
 
 output "instance_public_ip" {
-   value                        = aws_instance.clusxx.public_ip
+   value                        = aws_instance.clus.public_ip
 }
 
 output "instance_private_ip" {
-   value                        = aws_instance.clusxx.private_ip
+   value                        = aws_instance.clus.private_ip
 }
