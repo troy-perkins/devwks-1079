@@ -16,13 +16,28 @@
         ansible_become_password: cisco123
         ansible_ssh_host: "{{ edge_public }}"
         ansible_network_os: cisco.ios.ios
-        
+
+- name: Wait for Router to be accessible
+  hosts: edge_routers
+  gather_facts: false
+  connection: network_cli
+
+  tasks:
+    - name: Wait for device to be reachable
+      wait_for:
+        host: "{{ edge_public }}"
+        port: 22
+
 - name: Configure Edge Cloud Router
   hosts: edge_routers
   gather_facts: false
   connection: network_cli
 
   tasks:
+    - name: Wait for Authentication to be Available
+      pause:
+        seconds: 30
+        
     - name: Create Edge Router Loopback0 Interface
       ios_config:
         lines:
