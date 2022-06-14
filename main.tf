@@ -1,3 +1,9 @@
+provider "aws" {
+   region = "us-west-2"
+   access_key                   = "<copy_access_key_here>"
+   secret_key                   = "<copy_secret_key_here>"
+}
+
 resource "aws_instance" "clus" {
    ami                          = "ami-08ff3b00ec566077f"
    instance_type                = "t3.medium"
