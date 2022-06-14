@@ -20,7 +20,7 @@ resource "aws_instance" "clus" {
    EOF
    
    #provisioner "local-exec" {
-   #   command = "ansible-playbook eigrp.yml --extra-vars 'edge_public=${aws_instance.clus.public_ip}'"
+   #   command = "ansible-playbook edge.yml --extra-vars 'edge_public=${aws_instance.clus.public_ip}'"
    #}
 }
 
