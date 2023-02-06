@@ -1,20 +1,20 @@
 provider "aws" {
-   region = "us-west-2"
+   region = "eu-central-1"
    access_key                   = "<copy_access_key_here>"
    secret_key                   = "<copy_secret_key_here>"
 }
 
 resource "aws_instance" "clus" {
-   ami                          = "ami-08ff3b00ec566077f"
+   ami                          = "ami-071e61cec88c326c5"
    instance_type                = "t3.medium"
-   availability_zone            = "us-west-2a"
-   subnet_id                    = "subnet-037583d36835d96b2" 
-   vpc_security_group_ids       = ["sg-0455f1afa6a3c3542", "sg-07962dfffbd00570e"]
-   key_name                     = "FCKeyPair1"
+   availability_zone            = "eu-central-1a"
+   subnet_id                    = "subnet-8a1180e0" 
+   vpc_security_group_ids       = ["sg-6511e718","sg-03c652c443254a927"]
+   key_name                     = "fracaen-key01"
 
    user_data = <<-EOF
        Section: IOS configuration
-       hostname clus
+       hostname ciscolive
        ip domain name cisco.local
        aaa new-model
        aaa authentication login default local
