@@ -5,12 +5,13 @@ provider "aws" {
 }
 
 resource "aws_instance" "clus" {
-   ami                          = "ami-08ff3b00ec566077f"
+   ami                          = "ami-049489b50a99d699e"
    instance_type                = "t3.medium"
-   availability_zone            = "us-west-2a"
-   subnet_id                    = "subnet-037583d36835d96b2" 
-   vpc_security_group_ids       = ["sg-0455f1afa6a3c3542", "sg-07962dfffbd00570e"]
-   key_name                     = "FCKeyPair1"
+   availability_zone            = "us-east-1a"
+   subnet_id                    = "subnet-02a3676b614061b97"
+   vpc_security_group_ids       = ["sg-0a9e5df26b5f3aa80", "sg-0f1dbd1d4b8d18c89"]
+   key_name                     = "FC_Key_Pair"
+   associate_public_ip_address  = true 
 
    user_data = <<-EOF
        Section: IOS configuration
