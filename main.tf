@@ -1,15 +1,15 @@
 provider "aws" {
    region = "us-east-1"
-   access_key                   = "<copy_access_key_here>"
-   secret_key                   = "<copy_secret_key_here>"
+   access_key                   = var.AWS_ACCESS_KEY
+   secret_key                   = var.AWS_SECRET_KEY
 }
 
 resource "aws_instance" "clus" {
    ami                          = "ami-049489b50a99d699e"
    instance_type                = "t3.medium"
    availability_zone            = "us-east-1a"
-   subnet_id                    = "subnet-033256d5986ef1ece"
-   vpc_security_group_ids       = ["sg-0ca94ada3d7154ba7"]
+   subnet_id                    = "subnet-0901b57c2ac709feb"
+   vpc_security_group_ids       = ["sg-08e4bc91308009e64", "sg-050cd1c58619ad280"]
    key_name                     = "FC_Key_Pair"
    associate_public_ip_address  = true 
 
