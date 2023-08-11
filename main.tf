@@ -9,7 +9,7 @@ resource "aws_instance" "clus" {
    instance_type                = "t3.medium"
    availability_zone            = "us-east-1a"
    subnet_id                    = "subnet-0e12ccfb0c8b75dd3"
-   vpc_security_group_ids       = ["sg-02edde70043e28402", "sg-09742dcdfd5fd0a3d"]
+   vpc_security_group_ids       = ["sg-090409f362766cb5b", "sg-0cb7ce0568d2e543e"]
    key_name                     = "FC_Key_Pair"
    associate_public_ip_address  = true 
 
