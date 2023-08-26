@@ -15,7 +15,7 @@ resource "aws_instance" "clus" {
 
    user_data = <<-EOF
        Section: IOS configuration
-       hostname clus
+       hostname impact
        ip domain name cisco.local
        aaa new-model
        aaa authentication login default local
